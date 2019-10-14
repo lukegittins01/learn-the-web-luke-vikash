@@ -9,8 +9,18 @@ get '/secret' do
   "World"
 end
 
-get '/cat' do
-  "<div style='border: 3px dashed red'>
-    <img src='http://bit.ly/1eze8aE'>
-   </div>"
+get '/random-cat' do
+  @name = ["Amigo", "Oscar", "Viking"].sample
+  erb :index
+end
+
+get '/named-cat' do
+  p params
+  @name = params[:name]
+  erb :index
+  # @name.is_a?(String)
+end
+
+get '/form' do
+  erb :index
 end
